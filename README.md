@@ -244,8 +244,7 @@ Perplexity = 100 雖然 KL Divergence 較低，但部分類別出現較明顯的
 t-SNE 會將高維空間中樣本之間的距離轉換為相似度機率
 
 \[
-p_{j|i}
-=
+p_{j|i}=
 \frac{
 \exp\left(-\frac{\|x_i-x_j\|^2}{2\sigma_i^2}\right)
 }{
@@ -272,8 +271,7 @@ Perp(P_i)=2^{H(P_i)}
 其中 Shannon entropy 為
 
 \[
-H(P_i)
-=
+H(P_i)=
 -\sum_j p_{j|i}\log_2 p_{j|i}
 \]
 
