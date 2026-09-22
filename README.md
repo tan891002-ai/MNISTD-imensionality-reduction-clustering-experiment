@@ -243,7 +243,7 @@ Perplexity = 100 雖然 KL Divergence 較低，但部分類別出現較明顯的
 
 t-SNE 會將高維空間中樣本之間的距離轉換為相似度機率
 
-\[
+$$
 p_{j|i}=
 \frac{
 \exp\left(-\frac{\|x_i-x_j\|^2}{2\sigma_i^2}\right)
@@ -251,53 +251,53 @@ p_{j|i}=
 \sum_{k\neq i}
 \exp\left(-\frac{\|x_i-x_k\|^2}{2\sigma_i^2}\right)
 }
-\]
+$$
 
 其中
 
-- \(x_i\)：第 \(i\) 個樣本
-- \(x_j\)：第 \(j\) 個樣本
-- \(\|x_i-x_j\|\)：兩個樣本在高維空間中的距離
-- \(\sigma_i\)：第 \(i\) 個樣本的 Gaussian kernel 寬度
+- $x_i$：第 $i$ 個樣本
+- $x_j$：第 $j$ 個樣本
+- $\|x_i-x_j\|$：兩個樣本在高維空間中的距離
+- $\sigma_i$：第 $i$ 個樣本的 Gaussian kernel 寬度
 
 ## Perplexity與鄰域範圍
 
 Perplexity 定義為
 
-\[
+$$
 Perp(P_i)=2^{H(P_i)}
-\]
+$$
 
 其中 Shannon entropy 為
 
-\[
+$$
 H(P_i)=
 -\sum_j p_{j|i}\log_2 p_{j|i}
-\]
+$$
 
 Perplexity 越高，代表需要考慮的有效鄰域越大
 
-為了達到指定的 Perplexity，t-SNE 會調整 \(\sigma_i\)
+為了達到指定的 Perplexity，t-SNE 會調整 $\sigma_i$
 
-當 Perplexity 提高時，\(\sigma_i\) 通常會增加，使 Gaussian kernel 的影響範圍擴大
+當 Perplexity 提高時，$\sigma_i$ 通常會增加，使 Gaussian kernel 的影響範圍擴大
 
 ## 為什麼會產生混雜
 
 由
 
-\[
+$$
 p_{j|i}
 \propto
 \exp\left(
 -\frac{\|x_i-x_j\|^2}{2\sigma_i^2}
 \right)
-\]
+$$
 
-可以看出，當 \(\sigma_i\) 增加時，相同距離下的相似度衰減程度降低
+可以看出，當 $\sigma_i$ 增加時，相同距離下的相似度衰減程度降低
 
 因此距離較遠的樣本也會具有較高的相似度機率
 
-也就是更多鄰近樣本會被納入第 \(i\) 個樣本的局部結構
+也就是更多鄰近樣本會被納入第 $i$ 個樣本的局部結構
 
 當不同類別的樣本彼此接近時，較大的 Perplexity 會使這些跨類別樣本的相似度關係增加
 
@@ -311,7 +311,7 @@ Perplexity = 30、50 時，二維分布較為相近
 
 因此本次實驗觀察到
 
-\[
+$$
 Perplexity\uparrow
 \Rightarrow
 \sigma_i\uparrow
@@ -323,7 +323,7 @@ Perplexity\uparrow
 局部類別結構受到更多影響
 \Rightarrow
 部分類別產生重疊
-\]
+$$
 
 # 混合實驗
 
