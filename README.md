@@ -301,7 +301,7 @@ Perplexity 越高，代表需要考慮的有效鄰域越大
 
 為了達到指定的 Perplexity，t-SNE 會調整 $\sigma_i$
 
-當 Perplexity 提高時，$\sigma_i$ 通常會增加，使 Gaussian kernel 的影響範圍擴大
+當 Perplexity 提高時， $\sigma_i$ 通常會增加，使 Gaussian kernel 的影響範圍擴大
 
 
 ## 為什麼會產生混雜
